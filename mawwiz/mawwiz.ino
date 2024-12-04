@@ -12,7 +12,8 @@
 // Define Firebase credentials
 #define FIREBASE_HOST "proj3dec-default-rtdb.firebaseio.com"
 #define FIREBASE_AUTH "R2EjtTTCMeE4C5n02HJmEzKkIygVN4rpbdQRbKOE"
-
+// #define FIREBASE_HOST "control-60b4a-default-rtdb.firebaseio.com"
+// #define FIREBASE_AUTH "bTcrTo4dGQlUYwzQmPv0H3xARHKWNDUgT8Mqqkbc"
 FirebaseData firebaseData;
 FirebaseConfig firebaseConfig;
 FirebaseAuth firebaseAuth;
