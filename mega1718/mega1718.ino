@@ -43,7 +43,7 @@ void receiveEvent(int bytes) {
   if (Wire.available() > 0) {
     mode = Wire.read(); // Read the mode sent by ESP8266
     //Serial.print("Mode received: ");
-    //Serial.println(mode);
+    Serial.println(mode);
     var1 = mode-48;
     Serial.println(var1);
   }
