@@ -3,7 +3,7 @@
 WiFiClient client;
 WiFiServer server(80);
 
-#define led D5
+// #define led D5
 
 void setup() 
 {
@@ -19,7 +19,7 @@ void setup()
   Serial.println("NodeMCU is connected!");
   Serial.println(WiFi.localIP());
   server.begin();
-  pinMode(led, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() 
@@ -33,11 +33,11 @@ void loop()
     request.trim();
     if(request == "GET /ledon HTTP/1.1")
     {
-      digitalWrite(led, HIGH);
+      digitalWrite(LED_BUILTIN, LOW);     //opposite
     }
     if(request == "GET /ledoff HTTP/1.1")
     {
-      digitalWrite(led, LOW);
+      digitalWrite(LED_BUILTIN, HIGH);
     }
   }
 }
