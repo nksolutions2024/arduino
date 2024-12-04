@@ -2,12 +2,16 @@
 #include <FirebaseESP8266.h>
 
 // Replace with your Wi-Fi credentials
-#define WIFI_SSID "TP-Link_68A4"
-#define WIFI_PASSWORD "123456789@POWERX"
+// #define WIFI_SSID "TP-Link_68A4"
+// #define WIFI_PASSWORD "123456789@POWERX"
+#define WIFI_SSID "deep"
+#define WIFI_PASSWORD "12345678"
+
+
 
 // Define Firebase credentials
-#define FIREBASE_HOST "control-60b4a-default-rtdb.firebaseio.com"
-#define FIREBASE_AUTH "bTcrTo4dGQlUYwzQmPv0H3xARHKWNDUgT8Mqqkbc"
+#define FIREBASE_HOST "proj3dec-default-rtdb.firebaseio.com"
+#define FIREBASE_AUTH "R2EjtTTCMeE4C5n02HJmEzKkIygVN4rpbdQRbKOE"
 
 FirebaseData firebaseData;
 FirebaseConfig firebaseConfig;
