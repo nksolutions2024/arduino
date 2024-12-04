@@ -108,7 +108,7 @@ void setup(void)
   pinMode(LED1,OUTPUT);
   pinMode(LED2,OUTPUT);
   
-  WiFi.softAP("techiesms", "");
+  WiFi.softAP("deep", "12345678");
   Serial.println("softap");
   Serial.println("");
   Serial.println(WiFi.softAPIP());
