@@ -1,20 +1,61 @@
 #include <Wire.h>
+#include <ESP8266WiFi.h>
+#include <FirebaseESP8266.h>
 
-#define SLAVE_ADDRESS 8  // I2C Slave address (match this on the slave device)
+// Replace with your Wi-Fi credentials
+// #define WIFI_SSID "TP-Link_68A4"
+// #define WIFI_PASSWORD "123456789@POWERX"
+#define WIFI_SSID "deep"
+#define WIFI_PASSWORD "12345678"
+
+// Firebase credentials
+// #define FIREBASE_HOST "control-60b4a-default-rtdb.firebaseio.com"
+// #define FIREBASE_AUTH "bTcrTo4dGQlUYwzQmPv0H3xARHKWNDUgT8Mqqkbc"
+#define FIREBASE_HOST "proj3dec-default-rtdb.firebaseio.com"
+#define FIREBASE_AUTH "R2EjtTTCMeE4C5n02HJmEzKkIygVN4rpbdQRbKOE"
+
+FirebaseData firebaseData;
+FirebaseConfig firebaseConfig;
+FirebaseAuth firebaseAuth;
 
 void setup() {
+  // Start Serial Monitor
   Serial.begin(115200);
-  Wire.begin();  // Start the I2C as master
-  Serial.println("I2C Master Ready!");
+
+  // Connect to Wi-Fi
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  Serial.print("Connecting to WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+  Serial.println("\nConnected to WiFi!");
+
+  // Initialize Firebase
+  firebaseConfig.host = FIREBASE_HOST;
+  firebaseConfig.signer.tokens.legacy_token = FIREBASE_AUTH;
+  Firebase.begin(&firebaseConfig, &firebaseAuth);
+
+  // Initialize I2C communication as Master
+  Wire.begin();
 }
 
 void loop() {
-  Wire.requestFrom(SLAVE_ADDRESS, 16); // Request 16 bytes from slave device
-  
-  while (Wire.available()) {
-    char c = Wire.read();  // Read the byte received
-    Serial.print(c);  // Print the byte to Serial Monitor
-  }
-  
-  delay(1000);  // Wait for 1 second before next request
+  // Fetch data from Firebase
+  if (Firebase.getString(firebaseData, "/arduinos/arduino_1/mode")) {
+    if (firebaseData.dataType() == "string") {
+      // String data = firebaseData.stringData();
+      String data1 = "hhhhello";
+      Serial.println("Data sending to UNO: " + data1);
+
+      // Send data to Arduino Mega via I2C
+      Wire.beginTransmission(8);  // Address of the slave (Mega)
+      Wire.write("not variable data1");          // Send string data
+      Wire.endTransmission();
+    }
+  } 
+  // else {
+  //   Serial.println("Error fetching data: " + firebaseData.errorReason());
+  // }
+  delay(2000);
 }
