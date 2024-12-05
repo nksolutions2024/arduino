@@ -1,20 +1,21 @@
+
 #include <Wire.h>
 
-void setup() 
-{
-  Wire.begin(D4, D3);   // SDA = D4 (GPIO/DPin-2), SCL = D3 (GPIO-0)
-  Serial.begin(115200);
-  Serial.print("  ");
+void setup() {
+  Wire.begin();        // join i2c bus (address optional for master)
+  // Wire.begin(0,2);
+  Serial.begin(9600);  // start serial for output
+  delay(100);
+  Serial.print("Master Ready");
 }
 
-void loop() 
-{
-  byte n = Wire.requestFrom(8, 29); //request 29 bytes byte x = Wire.read();
-  for(int i = 0; i < n; i++)
-  {
-    char y = Wire.read();
-    Serial.print(y);
+void loop() {
+  Wire.requestFrom(8, 6);    // request 6 bytes from slave device #8
+
+  while (Wire.available()) { // slave may send less than requested
+    char c = Wire.read(); // receive a byte as character
+    Serial.print(c);         // print the character
   }
-  Serial.println();
-  delay(1000);
+
+  delay(500);
 }
