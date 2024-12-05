@@ -3,7 +3,6 @@
 String receivedData = ""; // Buffer to store received data
 
 void setup() {
-  // Start Serial Monitor
   Serial.begin(115200);
 
   // Initialize I2C communication as Slave
@@ -29,4 +28,3 @@ void receiveEvent(int howMany) {
     receivedData += c; // Append to buffer
   }
 }
-
