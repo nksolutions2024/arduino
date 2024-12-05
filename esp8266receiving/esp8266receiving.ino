@@ -42,18 +42,18 @@ void setup() {
 
 void loop() {
   // Fetch data from Firebase
-  if (Firebase.getString(firebaseData, "/arduinos/arduino_1/mode")) {
-    if (firebaseData.dataType() == "string") {
+  // if (Firebase.getString(firebaseData, "/arduinos/arduino_1/mode")) {
+    // if (firebaseData.dataType() == "string") {
       // String data = firebaseData.stringData();
-      String data1 = "hhhhello";
+      String data1 = "other string";
       Serial.println("Data sending to UNO: " + data1);
 
       // Send data to Arduino Mega via I2C
       Wire.beginTransmission(8);  // Address of the slave (Mega)
-      Wire.write("not variable data1");          // Send string data
+      Wire.write("not_variable_data1");          // Send string data
       Wire.endTransmission();
-    }
-  } 
+    // }
+  // } 
   // else {
   //   Serial.println("Error fetching data: " + firebaseData.errorReason());
   // }
