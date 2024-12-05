@@ -12,7 +12,7 @@ void setup() {
 
 void loop() {
   // Data to send to the slave
-  String dataToSend = "Hello Arduino Slave!";
+  String dataToSend = "time1655";
 
   // Start I2C transmission to slave address 8
   Wire.beginTransmission(8);  // Slave address is 8
