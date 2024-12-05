@@ -1,15 +1,20 @@
 #include <Wire.h>
-void setup() {
+
+void setup() 
+{
+  Wire.begin(D4, D3);   // SDA = D4 (GPIO/DPin-2), SCL = D3 (GPIO-0)
   Serial.begin(115200);
-  Wire.begin(D1, D2);
+  Serial.print("  ");
 }
 
-void loop() {
-  Wire.requestFrom(8, 10);
-  while (Wire.available()) {
-    char c = Wire.read();
-    Serial.print(c);
+void loop() 
+{
+  byte n = Wire.requestFrom(8, 29); //request 29 bytes byte x = Wire.read();
+  for(int i = 0; i < n; i++)
+  {
+    char y = Wire.read();
+    Serial.print(y);
   }
   Serial.println();
-  delay(100);
+  delay(1000);
 }

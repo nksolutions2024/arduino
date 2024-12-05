@@ -11,7 +11,7 @@ void loop() {
   // Request 1 byte from the Arduino
   // Wire.requestFrom(8, 1);  // Request from slave with address 8
 
-  Serial.println("outside_if_1718");
+  Serial.println("outside_if_1739");
   // Send data to Arduino Mega via I2C
   Wire.beginTransmission(8);         // Address of the slave (Mega)
   Wire.write("1708directly_written");  // Send string data
