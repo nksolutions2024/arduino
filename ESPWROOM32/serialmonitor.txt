@@ -1,0 +1,58 @@
+12:00:29.464 -> [SETUP] WAIT 3...
+12:00:30.474 -> [SETUP] WAIT 2...
+12:00:31.473 -> [SETUP] WAIT 1...
+12:00:35.804 -> [HTTP] begin...
+12:00:35.804 -> [HTTP] GET...
+12:00:37.948 -> [HTTP] GET... code: 200
+12:00:37.949 -> <!doctype html>
+12:00:37.949 -> <html>
+12:00:37.949 -> <head>
+12:00:37.949 ->     <title>Example Domain</title>
+12:00:37.949 -> 
+12:00:37.949 ->     <meta charset="utf-8" />
+12:00:37.949 ->     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+12:00:37.949 ->     <meta name="viewport" content="width=device-width, initial-scale=1" />
+12:00:37.980 ->     <style type="text/css">
+12:00:37.980 ->     body {
+12:00:37.980 ->         background-color: #f0f0f2;
+12:00:37.980 ->         margin: 0;
+12:00:37.980 ->         padding: 0;
+12:00:37.980 ->         font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+12:00:37.980 ->         
+12:00:37.980 ->     }
+12:00:37.980 ->     div {
+12:00:37.980 ->         width: 600px;
+12:00:37.980 ->         margin: 5em auto;
+12:00:37.980 ->         padding: 2em;
+12:00:37.980 ->         background-color: #fdfdff;
+12:00:38.012 ->         border-radius: 0.5em;
+12:00:38.012 ->         box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+12:00:38.012 ->     }
+12:00:38.012 ->     a:link, a:visited {
+12:00:38.012 ->         color: #38488f;
+12:00:38.012 ->         text-decoration: none;
+12:00:38.012 ->     }
+12:00:38.012 ->     @media (max-width: 700px) {
+12:00:38.012 ->         div {
+12:00:38.012 ->             margin: 0 auto;
+12:00:38.012 ->             width: auto;
+12:00:38.012 ->         }
+12:00:38.012 ->     }
+12:00:38.012 ->     </style>    
+12:00:38.012 -> </head>
+12:00:38.012 -> 
+12:00:38.012 -> <body>
+12:00:38.012 -> <div>
+12:00:38.012 ->     <h1>Example Domain</h1>
+12:00:38.054 ->     <p>This domain is for use in illustrative examples in documents. You may use this
+12:00:38.054 ->     domain in literature without prior coordination or asking for permission.</p>
+12:00:38.054 ->     <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+12:00:38.054 -> </div>
+12:00:38.054 -> </body>
+12:00:38.054 -> </html>
+12:00:38.054 -> 
+12:00:43.053 -> [HTTP] begin...
+12:00:43.053 -> [HTTP] GET...
+12:00:45.104 -> [HTTP] GET... code: 200
+12:00:45.139 -> <!doctype html>
+12:00:45.139 -
