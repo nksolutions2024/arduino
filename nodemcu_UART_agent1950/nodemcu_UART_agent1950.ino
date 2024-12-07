@@ -54,7 +54,7 @@ void loop() {
       String data = firebaseData.stringData();
 
       // send data to GIGA(TX1 RX1 Serial2) via UART
-      Serial.println("Data from Firebase: " + data);
+      // Serial.println("Data from Firebase: " + data);
     }
   } else {
     // Serial.println("Error fetching data: " + firebaseData.errorReason());
