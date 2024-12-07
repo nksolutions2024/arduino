@@ -11,8 +11,10 @@
 // Firebase credentials
 // #define FIREBASE_HOST "control-60b4a-default-rtdb.firebaseio.com"
 // #define FIREBASE_AUTH "bTcrTo4dGQlUYwzQmPv0H3xARHKWNDUgT8Mqqkbc"
-#define FIREBASE_HOST "proj3dec-default-rtdb.firebaseio.com"
-#define FIREBASE_AUTH "R2EjtTTCMeE4C5n02HJmEzKkIygVN4rpbdQRbKOE"
+// #define FIREBASE_HOST "proj3dec-default-rtdb.firebaseio.com"
+// #define FIREBASE_AUTH "R2EjtTTCMeE4C5n02HJmEzKkIygVN4rpbdQRbKOE"
+#define FIREBASE_HOST "firewrite5dec-default-rtdb.firebaseio.com"
+#define FIREBASE_AUTH "JeE7LvGbLvPLldlE3AdnK0wU0lsZRNZZ0lvryUG7"
 
 FirebaseData firebaseData;
 FirebaseConfig firebaseConfig;
@@ -36,7 +38,6 @@ void setup() {
   firebaseConfig.signer.tokens.legacy_token = FIREBASE_AUTH;
   Firebase.begin(&firebaseConfig, &firebaseAuth);
 
-  // Initialize I2C communication as Master
   Wire.begin();
 }
 
@@ -54,17 +55,16 @@ void loop() {
     // Serial.println("Error fetching data: " + firebaseData.errorReason());
   }
   // Serial.println("esp8266-Always");
-  // // Serial.println(data);
 
-  // Receiver: Check if there is incoming data from UART
-  if (Serial.available() > 0) {
-    // Read the incoming data
-    String receivedData = Serial.readString();
+  // // Receiver: Check if there is incoming data from UART
+  // if (Serial.available() > 0) {
+  //   // Read the incoming data
+  //   String receivedData = Serial.readString();
 
-    // Print received data to the serial monitor
-    // Serial.print("Received data: ");  //comment it
-    // Serial.println(receivedData);     //comment it
-  }
+  //   // Print received data to the serial monitor
+  //   // Serial.print("Received data: ");  //comment it 
+  //   // Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
+  // }
 
   delay(1000);
 }
