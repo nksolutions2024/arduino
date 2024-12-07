@@ -6,9 +6,9 @@ void setup() {
 }
 
 void loop() {
-  delay(2000);
-  // Serial2.println("giga sending time1703");
-  Serial.println("giga serial monitor1801");
+  Serial.println("giga-serial-monitor1818");
+
+  Serial2.println("giga-sending-2753");
 
   String incoming;
   while (Serial2.available()) {
@@ -18,4 +18,5 @@ void loop() {
   }
   Serial.println(incoming);
   
+  delay(2000);
 }
