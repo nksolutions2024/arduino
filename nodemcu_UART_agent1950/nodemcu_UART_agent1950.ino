@@ -82,7 +82,7 @@ void loop() {
 
   //giga_counter
   int g_counter=14;
-  Serial.println(g_counter);
+  Serial.println(g_counter); //working OK OK OK
 
   delay(1000);
 }
