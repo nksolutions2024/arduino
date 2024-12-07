@@ -41,30 +41,30 @@ void setup() {
 }
 
 void loop() {
-  // Fetch data from Firebase
-  if (Firebase.getString(firebaseData, "/arduinos/arduino_1/mode")) {
-    if (firebaseData.dataType() == "string") {
-      String data = firebaseData.stringData();
+  // // Fetch data from Firebase
+  // if (Firebase.getString(firebaseData, "/arduinos/arduino_1/mode")) {
+  //   if (firebaseData.dataType() == "string") {
+  //     String data = firebaseData.stringData();
 
-      // send data to GIGA(TX1 RX1 Serial2) via UART
-      // Serial.println("esp8266-sending-1908");
-      Serial.println("Data from Firebase: " + data);
-    }
-  } else {
-    // Serial.println("Error fetching data: " + firebaseData.errorReason());
-  }
-  // Serial.println("esp8266-Always");
-  // Serial.println(data);
-
-  // // Receiver: Check if there is incoming data from UART
-  // if (Serial.available() > 0) {
-  //   // Read the incoming data
-  //   String receivedData = Serial.readString();
-
-  //   // Print received data to the serial monitor
-  //   Serial.print("Received data: ");  //comment it
-  //   Serial.println(receivedData);     //comment it
+  //     // send data to GIGA(TX1 RX1 Serial2) via UART
+  //     // Serial.println("esp8266-sending-1908");
+  //     Serial.println("Data from Firebase: " + data);
+  //   }
+  // } else {
+  //   // Serial.println("Error fetching data: " + firebaseData.errorReason());
   // }
+  Serial.println("esp8266-Always");
+  // // Serial.println(data);
+
+  // Receiver: Check if there is incoming data from UART
+  if (Serial.available() > 0) {
+    // Read the incoming data
+    String receivedData = Serial.readString();
+
+    // Print received data to the serial monitor
+    Serial.print("Received data: ");  //comment it
+    Serial.println(receivedData);     //comment it
+  }
 
   delay(1000);
 }
