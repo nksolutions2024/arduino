@@ -1,26 +1,25 @@
 #include <SoftwareSerial.h>
 
+// Transmit using Hardware UART (UART0)
 void setup() {
-  Serial.begin(9600);
+  // Initialize Serial with 115200 baud rate
+  Serial.begin(115200);
+  delay(1000);  // Allow time for initialization
+
+  Serial.println("ESP8266 UART Communication Example");
 }
 
 void loop() {
-  if (Serial.available() > 0) {
-    if (gps.encode(Serial.read())) {
-      if (gps.location.isValid()) {
-        latitude = gps.location.lat();
-        lat_str = String(latitude, 6);
-        longitude = gps.location.lng();
-        lng_str = String(longitude, 6);
-      }
-    }
-    //    Serial.println(lat_str);
+  // Transmit a message
+  Serial.println("Hello, this is ESP8266!");
 
-    String str2 = "s1";
-    String str3 = "s2";
-    
-    if (str2 != NULL && str3 != NULL) {
-      discord.send("http://maps.google.com/maps?&z=15&mrt=yp&t=k&q=" + str2 + "," + str3);
-    }
+  // Check if data is available to read
+  if (Serial.available()) {
+    // Read the incoming data
+    String incomingData = Serial.readString();
+    Serial.print("Received: ");
+    Serial.println(incomingData);
   }
+
+  delay(1000);  // Delay for readability
 }
