@@ -25,11 +25,11 @@ void setup() {
   // Connect to Wi-Fi
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   // Serial.print("Connecting to WiFi");
-  // while (WiFi.status() != WL_CONNECTED) {
-  //   delay(1000);
-  //   Serial.print(".");
-  // }
-  // Serial.println("\nConnected to WiFi!");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+  Serial.println("\nConnected to WiFi!");
 
   // Initialize Firebase
   firebaseConfig.host = FIREBASE_HOST;
@@ -47,14 +47,14 @@ void loop() {
       String data = firebaseData.stringData();
 
       // send data to GIGA(TX1 RX1 Serial2) via UART
-      Serial.println("esp8266-sending-1855");
+      // Serial.println("esp8266-sending-1908");
       Serial.println("Data from Firebase: " + data);
     }
   } else {
     // Serial.println("Error fetching data: " + firebaseData.errorReason());
   }
   Serial.println("esp8266-Always");
-  Serial.println(data);
+  // Serial.println(data);
 
   // // Receiver: Check if there is incoming data from UART
   // if (Serial.available() > 0) {
