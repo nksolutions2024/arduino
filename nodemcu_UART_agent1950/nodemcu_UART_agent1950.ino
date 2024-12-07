@@ -54,7 +54,7 @@ void loop() {
       String data = firebaseData.stringData();
 
       // send data to GIGA(TX1 RX1 Serial2) via UART
-      // Serial.println("Data from Firebase: " + data);
+      // Serial.println("Data from Firebase: " + data); //debugging_point1
     }
   } else {
     // Serial.println("Error fetching data: " + firebaseData.errorReason());
@@ -72,13 +72,17 @@ void loop() {
 
   // Send data to Firebase
   if (Firebase.setInt(firebaseData, "/arduinos/arduino_1/L1", L1)) {
-    Serial.println("new line");
+    Serial.print(""); //working properly yes it is blank
   }
   // else {
   //   // Serial.println("Error sending L1: " + firebaseData.errorReason());
   // }
 
   L1 = L1 + 4;
+
+  //giga_counter
+  int g_counter=14;
+  Serial.println(g_counter);
 
   delay(1000);
 }
