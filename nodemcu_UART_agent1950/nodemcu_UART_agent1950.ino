@@ -20,8 +20,12 @@ FirebaseData firebaseData;
 FirebaseConfig firebaseConfig;
 FirebaseAuth firebaseAuth;
 
+// Variables for sending data
+int L1 = 0;  // Initialize with some value
+int L2 = 0;  // Initialize with some value
+int L3 = 0;  // Initialize with some value
+
 void setup() {
-  // Start Serial Monitor
   Serial.begin(115200);
 
   // Connect to Wi-Fi
@@ -36,6 +40,9 @@ void setup() {
   // Initialize Firebase
   firebaseConfig.host = FIREBASE_HOST;
   firebaseConfig.signer.tokens.legacy_token = FIREBASE_AUTH;
+  // Optional: Set the maximum timeout for Firebase operations
+  firebaseConfig.timeout.socketConnection = 10000;
+  // Initialize Firebase
   Firebase.begin(&firebaseConfig, &firebaseAuth);
 
   Wire.begin();
@@ -56,15 +63,15 @@ void loop() {
   }
   // Serial.println("esp8266-Always");
 
-  // // Receiver: Check if there is incoming data from UART
-  // if (Serial.available() > 0) {
-  //   // Read the incoming data
-  //   String receivedData = Serial.readString();
+  // COMMENT BELOW 9 LINES (Receiver code)
+  if (Serial.available() > 0) {
+    // Read the incoming data
+    String receivedData = Serial.readString();
 
-  //   // Print received data to the serial monitor
-  //   // Serial.print("Received data: ");  //comment it 
-  //   // Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
-  // }
+    // Print received data to the serial monitor
+    Serial.print("Received data: ");  //comment it
+    Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
+  }
 
   delay(1000);
 }
