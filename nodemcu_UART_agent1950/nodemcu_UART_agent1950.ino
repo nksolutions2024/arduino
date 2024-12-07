@@ -1,4 +1,3 @@
-#include <Wire.h>
 #include <ESP8266WiFi.h>
 #include <FirebaseESP8266.h>
 
@@ -21,9 +20,9 @@ FirebaseConfig firebaseConfig;
 FirebaseAuth firebaseAuth;
 
 // Variables for sending data
-int L1 = 0;  // Initialize with some value
-int L2 = 0;  // Initialize with some value
-int L3 = 0;  // Initialize with some value
+int L1 = 0;
+int L2 = 0;
+int L3 = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -45,7 +44,6 @@ void setup() {
   // Initialize Firebase
   Firebase.begin(&firebaseConfig, &firebaseAuth);
 
-  Wire.begin();
 }
 
 void loop() {
@@ -63,15 +61,15 @@ void loop() {
   }
   // Serial.println("esp8266-Always");
 
-  // COMMENT BELOW 9 LINES (Receiver code)
-  if (Serial.available() > 0) {
-    // Read the incoming data
-    String receivedData = Serial.readString();
+  // // COMMENT BELOW 9 LINES (Receiver code)
+  // if (Serial.available() > 0) {
+  //   // Read the incoming data
+  //   String receivedData = Serial.readString();
 
-    // Print received data to the serial monitor
-    Serial.print("Received data: ");  //comment it
-    Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
-  }
+  //   // Print received data to the serial monitor
+  //   Serial.print("Received data: ");  //comment it
+  //   Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
+  // }
 
   delay(1000);
 }
