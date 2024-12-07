@@ -8,8 +8,8 @@ void setup() {
 }
 
 void loop() {
-  Serial.println("giga-serial-monitor2023");
-  Serial2.println(var5);
+  Serial.println("giga-serial-monitor2057");
+  // Serial.println(var5);
 
   Serial2.println("giga-Counter:");
   Serial2.println(var5);
