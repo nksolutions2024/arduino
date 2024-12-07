@@ -43,33 +43,42 @@ void setup() {
   firebaseConfig.timeout.socketConnection = 10000;
   // Initialize Firebase
   Firebase.begin(&firebaseConfig, &firebaseAuth);
-
 }
 
 void loop() {
+  // Serial.println("esp8266-Always");
+
   // Fetch data from Firebase
   if (Firebase.getString(firebaseData, "/arduinos/arduino_1/mode")) {
     if (firebaseData.dataType() == "string") {
       String data = firebaseData.stringData();
 
       // send data to GIGA(TX1 RX1 Serial2) via UART
-      // Serial.println("esp8266-sending-1908");
       Serial.println("Data from Firebase: " + data);
     }
   } else {
     // Serial.println("Error fetching data: " + firebaseData.errorReason());
   }
-  // Serial.println("esp8266-Always");
 
-  // // COMMENT BELOW 9 LINES (Receiver code)
-  // if (Serial.available() > 0) {
-  //   // Read the incoming data
-  //   String receivedData = Serial.readString();
+  // COMMENT BELOW 9 LINES (Receiver code)
+  if (Serial.available() > 0) {
+    // Read the incoming data
+    String receivedData = Serial.readString();
 
-  //   // Print received data to the serial monitor
-  //   Serial.print("Received data: ");  //comment it
-  //   Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
+    // Print received data to the serial monitor
+    Serial.print("Received data: ");  //comment it
+    Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
+  }
+
+  // Send data to Firebase
+  if (Firebase.setInt(firebaseData, "/arduinos/arduino_1/L1", L1)) {
+    Serial.println("L1 value sent: " + String(L1));
+  }
+  // else {
+  //   // Serial.println("Error sending L1: " + firebaseData.errorReason());
   // }
+
+  L1=L1+4;
 
   delay(1000);
 }

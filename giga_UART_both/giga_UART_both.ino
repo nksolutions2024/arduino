@@ -8,7 +8,7 @@ void setup() {
 void loop() {
   Serial.println("giga-serial-monitor2023");
 
-  Serial2.println("giga-sending-2753");
+  Serial2.println("giga-sending-time2050");
 
   String incoming;
   while (Serial2.available()) {
