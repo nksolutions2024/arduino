@@ -11,7 +11,7 @@ void loop() {
   Serial.println("giga-serial-monitor1436");
   Serial.println(var5);
 
-  Serial2.println("giga-Counter:");
+  // Serial2.println("giga-Counter:");
   Serial2.println(var5);
   var5=var5+1;
 

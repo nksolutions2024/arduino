@@ -83,10 +83,10 @@ void loop() {
   }
 
   L1 = L1 + 4;
-  GIGA_Counter = GIGA_Counter + 7;
+  // GIGA_Counter = GIGA_Counter + 7;
 
   //giga_counter
-  int g_counter = 46;
+  int g_counter = 58;
   Serial.println(g_counter);  //working OK OK OK
 
   delay(1000);
