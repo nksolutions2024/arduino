@@ -21,7 +21,7 @@ FirebaseAuth firebaseAuth;
 
 // Variables for sending data
 int L1 = 0;
-int L2 = 0;
+int GIGA_Counter = 0;
 int L3 = 0;
 
 void setup() {
@@ -68,23 +68,26 @@ void loop() {
     // Print received data to the serial monitor
     // Serial.print("Received data: ");  //comment it
     // Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
-    Serial.println(receivedData); // giga counter read by esp8266 
-  
+    Serial.println(receivedData);  // giga counter read by esp8266
   }
 
   // Send data to Firebase
   if (Firebase.setInt(firebaseData, "/arduinos/arduino_1/L1", L1)) {
-    Serial.print(""); //working properly yes it is blank
+    Serial.print("");  //working properly yes it is blank
   }
   // else {
   //   // Serial.println("Error sending L1: " + firebaseData.errorReason());
   // }
+  if (Firebase.setInt(firebaseData, "/arduinos/arduino_1/GIGA_Counter", GIGA_Counter)) {
+    Serial.print("");  //working properly yes it is blank
+  }
 
   L1 = L1 + 4;
+  GIGA_Counter = GIGA_Counter + 7;
 
   //giga_counter
-  int g_counter=46;
-  Serial.println(g_counter); //working OK OK OK
+  int g_counter = 46;
+  Serial.println(g_counter);  //working OK OK OK
 
   delay(1000);
 }
