@@ -68,7 +68,8 @@ void loop() {
     // Print received data to the serial monitor
     // Serial.print("Received data: ");  //comment it
     // Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
-    Serial.println(receivedData);  // giga counter read by esp8266
+    // Serial.println(receivedData);  // giga counter read by esp8266
+    L3 = receivedData.toInt(); //trying conversion to integer
   }
 
   // Send data to Firebase
@@ -88,6 +89,8 @@ void loop() {
   //giga_counter
   int g_counter = 6;
   // Serial.println(g_counter);  //working OK OK OK
+  Serial.print("L3 value set by GIGA:");
+  Serial.println(L3);
 
   delay(100);
 }
