@@ -79,7 +79,7 @@ void loop() {
   // else {
   //   // Serial.println("Error sending L1: " + firebaseData.errorReason());
   // }
-  if (Firebase.setInt(firebaseData, "/arduinos/arduino_1/GIGA_Counter", GIGA_Counter)) {
+  if (Firebase.setInt(firebaseData, "/arduinos/arduino_1/GIGA_Counter", L3)) {
     Serial.print("");  //working properly yes it is blank
   }
 
