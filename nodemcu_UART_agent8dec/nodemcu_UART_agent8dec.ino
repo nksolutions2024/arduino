@@ -60,15 +60,17 @@ void loop() {
     // Serial.println("Error fetching data: " + firebaseData.errorReason());
   }
 
-  // // COMMENT BELOW 9 LINES (Receiver code)
-  // if (Serial.available() > 0) {
-  //   // Read the incoming data
-  //   String receivedData = Serial.readString();
+  // COMMENT BELOW some LINES (Receiver code)
+  if (Serial.available() > 0) {
+    // Read the incoming data
+    String receivedData = Serial.readString();
 
-  //   // Print received data to the serial monitor
-  //   Serial.print("Received data: ");  //comment it
-  //   Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
-  // }
+    // Print received data to the serial monitor
+    // Serial.print("Received data: ");  //comment it
+    // Serial.println(receivedData);     //comment it as directly sending to Firebase AGENT
+    Serial.println(receivedData); // giga counter read by esp8266 
+  
+  }
 
   // Send data to Firebase
   if (Firebase.setInt(firebaseData, "/arduinos/arduino_1/L1", L1)) {
@@ -81,7 +83,7 @@ void loop() {
   L1 = L1 + 4;
 
   //giga_counter
-  int g_counter=14;
+  int g_counter=46;
   Serial.println(g_counter); //working OK OK OK
 
   delay(1000);
